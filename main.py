@@ -141,7 +141,7 @@ def create_beautiful_email_html(name, email, company, message):
 async def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/send-email")
+@app.post("/send-email", response_class=HTMLResponse)
 async def send_email(
     request: Request,
     Name: str = Form(...),
