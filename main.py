@@ -38,7 +38,7 @@ def create_beautiful_email_html(name, email, company, message):
             <div style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); padding: 40px 30px; text-align: center;">
                 <div style="background-color: rgba(255,255,255,0.1); display: inline-block; padding: 15px; border-radius: 50%; margin-bottom: 20px;">
                     <div style="width: 40px; height: 40px; background-color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <img src="./assets/logo.png" style="width: 30px; height: 30px;" alt="">
+                        <img src="/assets/logo.png" style="width: 30px; height: 30px;" alt="">
                     </div>
                 </div>
                 <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
