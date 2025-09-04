@@ -10,7 +10,6 @@ from datetime import datetime
 app = FastAPI()
 
 # Static + Template setup
-app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/assets", StaticFiles(directory="assets"), name="assets")
 templates = Jinja2Templates(directory="templates")
 
