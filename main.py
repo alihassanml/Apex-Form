@@ -143,6 +143,7 @@ async def read_root(request: Request):
 
 @app.post("/send-email")
 async def send_email(
+    request: Request,
     Name: str = Form(...),
     Email: str = Form(...),
     Company: str = Form(""),
@@ -194,14 +195,16 @@ This email was automatically generated from the Apex AI contact form.
             # Alternative: If you want to send to both you and the sender:
             # server.sendmail(EMAIL_ADDRESS, [EMAIL_ADDRESS, Email], msg.as_string())
         
-        return {"status": "success", "message": "Message sent successfully! We'll get back to you soon."}
-        
-    except smtplib.SMTPAuthenticationError as e:
-        print(f"SMTP Authentication Error: {str(e)}")
-        return {"status": "error", "message": "Authentication failed. Please check email credentials."}
-    except smtplib.SMTPException as e:
-        print(f"SMTP Error: {str(e)}")
-        return {"status": "error", "message": "Failed to send email due to server error."}
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "status": "success",
+            "message": "✅ Message sent successfully! We'll get back to you soon."
+        })
+
     except Exception as e:
-        print(f"General Error: {str(e)}")
-        return {"status": "error", "message": "Failed to send message. Please try again or email us directly at bwells@apexcapitalco.com"}
+        print("Error:", e)
+        return templates.TemplateResponse("index.html", {
+            "request": request,
+            "status": "error",
+            "message": "❌ Failed to send message. Please try again."
+        })

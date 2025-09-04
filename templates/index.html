@@ -231,6 +231,16 @@
             <button class="btn" type="submit">Send Message</button>
           </div>
         </form>
+        {% if status == "success" %}
+          <div style="background: #dcfce7; color: #166534; padding: 12px; border-radius: 8px; margin-bottom: 15px; margin-top: 10px;">
+            {{ message }}
+          </div>
+        {% elif status == "error" %}
+          <div style="background: #fee2e2; color: #991b1b; padding: 12px; border-radius: 8px; margin-bottom: 15px; margin-top: 10px;">
+            {{ message }}
+          </div>
+        {% endif %}
+
         <p style="margin-top:10px;color:var(--muted)">Prefer email? <a href="mailto:contact@apexaihome.com">contact@apexaihome.com</a></p>
       </div>
     </section>
